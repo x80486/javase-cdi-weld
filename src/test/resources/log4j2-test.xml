@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Properties>
+    <Property name="log-pattern">%date{MM-dd-yyyy HH:mm:ss,SSS} |- %highlight{%5level}{TRACE=blue, DEBUG=green, INFO=green, WARN=yellow, ERROR=red, FATAL=red} in %style{%class{32}:%line}{cyan} [%style{%thread}{magenta}] - %message%n</Property>
+  </Properties>
+
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT" follow="true">
+      <PatternLayout pattern="${log-pattern}" />
+    </Console>
+  </Appenders>
+
+  <!-- Logger levels: trace, debug, info, warn, error, all, off -->
+  <Loggers>
+    <AsyncLogger name="org.acme" level="warn" additivity="false" includeLocation="true">
+      <AppenderRef ref="Console" />
+    </AsyncLogger>
+
+    <Root level="warn">
+      <AppenderRef ref="Console" />
+    </Root>
+  </Loggers>
+</Configuration>

@@ -1,0 +1,21 @@
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+    version="2.2">
+  <!--
+      References:
+        - https://thorben-janssen.com/jpa-persistence-xml/
+        - https://javaee.github.io/tutorial/persistence-intro006.html
+        - https://docs.oracle.com/javaee/7/tutorial/persistence-intro005.htm
+  -->
+  <persistence-unit name="production" transaction-type="RESOURCE_LOCAL">
+    <class>org.acme.service_layer.domain.AbstractPersistable</class>
+    <class>org.acme.service_layer.domain.Spell</class>
+    <class>org.acme.service_layer.domain.SpellBook</class>
+    <class>org.acme.service_layer.domain.Wizard</class>
+
+    <properties>
+      <property name="hibernate.connection.datasource" value="java:comp/env/jdbc/java_design_patterns" />
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+    </properties>
+  </persistence-unit>
+</persistence>

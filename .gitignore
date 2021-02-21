@@ -1,0 +1,22 @@
+#
+# Excludes
+.gradle/
+.history/
+.idea/
+.settings/
+.vscode/
+bin/
+build/
+out/
+
+.DS_Store
+.classpath
+.project
+Thumbs.db
+*.iml
+*.ipr
+*.iws
+
+
+#
+# Includes
