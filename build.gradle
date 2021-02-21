@@ -102,6 +102,16 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.withType(Test) {
+  // doFirst {
+  //   copy {
+  //     from "${project.buildDir}/resources/main/META-INF/beans.xml"
+  //     into "${project.buildDir}/classes/main/META-INF/"
+  //   }
+  //   copy {
+  //     from "${project.buildDir}/resources/test/META-INF/beans.xml"
+  //     into "${project.buildDir}/classes/test/META-INF/"
+  //   }
+  // }
   testLogging {
     events = [TestLogEvent.FAILED, TestLogEvent.SKIPPED]
     exceptionFormat = TestExceptionFormat.FULL
