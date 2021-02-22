@@ -5,25 +5,19 @@ import lombok.extern.log4j.Log4j2;
 import org.acme.service_layer.domain.AbstractPersistable;
 
 import javax.persistence.EntityManager;
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 /**
  * @author x80486
  */
 @Log4j2
-public abstract class AbstractJpaDao<T extends AbstractPersistable> {
+abstract class AbstractDao<T extends AbstractPersistable> {
   @Inject
   protected EntityManager entityManager;
 
-  protected Class<T> clazz;
-
-  public void setClazz(final Class<T> clazz) {
-    this.clazz = clazz;
-  }
-
-  //-----------------------------------------------------------------------------------------------
-  //
-  //-----------------------------------------------------------------------------------------------
+  protected Class<T> type =
+      (Class<T>) ((ParameterizedType) (getClass().getGenericSuperclass())).getActualTypeArguments()[0];
 
   public void create(final T entity) {
     logger.debug("Persisting entity...");
@@ -38,14 +32,14 @@ public abstract class AbstractJpaDao<T extends AbstractPersistable> {
   public List<T> findAll() {
     logger.debug("Retrieving all entities (this may take a while)...");
     final var builder = entityManager.getCriteriaBuilder();
-    final var criteria = builder.createQuery(clazz);
-    final var model = criteria.from(clazz);
+    final var criteria = builder.createQuery(type);
+    final var model = criteria.from(type);
     return entityManager.createQuery(criteria.select(model)).getResultList();
   }
 
   public T findOne(final long id) {
     logger.debug("Retrieving entity [{}]...", id);
-    return entityManager.find(clazz, id);
+    return entityManager.find(type, id);
   }
 
   public T update(final T entity) {

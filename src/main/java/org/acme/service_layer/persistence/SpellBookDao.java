@@ -11,12 +11,12 @@ import java.util.Optional;
  */
 @Log4j2
 @Singleton
-public class SpellBookDao extends AbstractJpaDao<SpellBook> {
+public class SpellBookDao extends AbstractDao<SpellBook> {
   public Optional<SpellBook> findByName(final String name) {
     logger.debug("Searching spell book with name [{}]...", name);
     final var builder = entityManager.getCriteriaBuilder();
-    final var criteria = builder.createQuery(clazz);
-    final var model = criteria.from(clazz);
+    final var criteria = builder.createQuery(type);
+    final var model = criteria.from(type);
     criteria.select(model).where(builder.equal(model.get("name"), name));
     return Optional.ofNullable(entityManager.createQuery(criteria.select(model)).getSingleResult());
   }

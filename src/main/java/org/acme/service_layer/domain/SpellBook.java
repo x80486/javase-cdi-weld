@@ -23,7 +23,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "spell_books")
 @EqualsAndHashCode(callSuper = false, exclude = { "id", "spells", })
-public final class SpellBook extends AbstractPersistable {
+public class SpellBook extends AbstractPersistable {
   private static final long serialVersionUID = -5018345084134989900L;
 
   @Id

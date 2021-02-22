@@ -34,11 +34,13 @@ dependencies {
   //  Experimental Dependencies
   //-----------------------------------------------------------------------------------------------
 
-  implementation("org.jboss.weld.se:weld-se-core:4.0.0.Final")
-
-  runtimeOnly("javax:javaee-api:8.0.1")
+  // implementation("org.jboss.weld.se:weld-se-core:4.0.0.Final")
+  implementation("org.jboss.weld.se:weld-se-shaded:4.0.0.Final")
 
   testImplementation("org.jboss.weld:weld-junit5:2.0.2.Final")
+
+  // testRuntimeOnly("javax:javaee-api:8.0.1")
+  // testRuntimeOnly("javax:javaee-api:7.0  ")
 
   //-----------------------------------------------------------------------------------------------
   //  BOM Support
