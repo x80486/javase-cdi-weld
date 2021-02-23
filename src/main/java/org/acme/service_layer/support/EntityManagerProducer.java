@@ -1,17 +1,28 @@
 package org.acme.service_layer.support;
 
-import jakarta.enterprise.inject.Produces;
-
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Disposes;
+import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceContext;
 
 /**
- * @author ɐɹǝʌ ɯıpɐʌ
+ * @author x80486
  */
+@ApplicationScoped
 public class EntityManagerProducer {
+  @Inject
+  private EntityManagerFactory entityManagerFactory;
+
+  public void close(@Disposes final EntityManager entityManager) {
+    entityManager.close();
+  }
+
   @Produces
-  // @ApplicationScoped
-  // @PersistenceUnit(unitName = "test")
-  @PersistenceContext(unitName = "test")
-  private EntityManagerFactory factory;
+  @RequestScoped
+  public EntityManager create() {
+    return entityManagerFactory.createEntityManager();
+  }
 }

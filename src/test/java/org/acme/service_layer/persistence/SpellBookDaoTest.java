@@ -1,10 +1,10 @@
 package org.acme.service_layer.persistence;
 
-import jakarta.inject.Inject;
 import org.assertj.core.api.Assertions;
 import org.jboss.weld.junit5.EnableWeld;
 import org.junit.jupiter.api.Test;
 
+import javax.inject.Inject;
 import java.util.UUID;
 
 @EnableWeld
