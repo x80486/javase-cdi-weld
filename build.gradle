@@ -37,19 +37,19 @@ dependencies {
   // implementation("org.jboss.weld.se:weld-se-core")
   implementation("org.jboss.weld.se:weld-se-shaded")
 
-  testImplementation("org.jboss.weld:weld-junit5:2.0.2.Final") // ...uses Weld 3.1.6.Final
+  testImplementation("org.jboss.weld:weld-junit5:3.0.0.Final")
 
-  // testRuntimeOnly("javax:javaee-api:8.0.1")
-  // testRuntimeOnly("javax:javaee-api:7.0")
+  // testImplementation("jakarta.platform:jakarta.jakartaee-api:8.0.0")
+  // testImplementation("javax:javaee-api:8.0.1")
+  // testImplementation("javax:javaee-api:7.0")
 
   //-----------------------------------------------------------------------------------------------
   //  BOM Support
   //-----------------------------------------------------------------------------------------------
 
   implementation(enforcedPlatform("org.apache.logging.log4j:log4j-bom:2.14.0"))
-  implementation(enforcedPlatform("org.jboss.weld:weld-core-bom:3.1.6.Final"))
+  implementation(enforcedPlatform("org.jboss.weld:weld-core-bom:4.0.0.Final"))
 
-  testImplementation(enforcedPlatform("org.jboss.weld:weld-core-bom:3.1.6.Final"))
   testImplementation(enforcedPlatform("org.junit:junit-bom:5.7.1"))
 
   //-----------------------------------------------------------------------------------------------
