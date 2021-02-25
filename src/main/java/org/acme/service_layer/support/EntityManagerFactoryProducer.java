@@ -18,7 +18,6 @@ public class EntityManagerFactoryProducer {
   }
 
   @Produces
-  @ApplicationScoped
   public EntityManagerFactory create() {
     return Persistence.createEntityManagerFactory("test", Collections.emptyMap());
   }
