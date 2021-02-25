@@ -1,9 +1,9 @@
 package org.acme.service_layer.persistence;
 
+import jakarta.inject.Singleton;
 import lombok.extern.log4j.Log4j2;
 import org.acme.service_layer.domain.SpellBook;
 
-import javax.inject.Singleton;
 import java.util.Optional;
 
 /**

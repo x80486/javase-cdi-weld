@@ -3,12 +3,13 @@
     version="2.2">
   <persistence-unit name="test" transaction-type="RESOURCE_LOCAL">
     <class>org.acme.service_layer.domain.AbstractPersistable</class>
+    <class>org.acme.service_layer.domain.Spell</class>
     <class>org.acme.service_layer.domain.SpellBook</class>
 
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
       <property name="javax.persistence.jdbc.password" value="" />
-      <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:java_design_patterns" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:javase-cdi-weld" />
       <property name="javax.persistence.jdbc.user" value="sa" />
       <!--<property name="javax.persistence.schema-generation.create-script-source" value="database/setup-schema.sql" />-->
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />

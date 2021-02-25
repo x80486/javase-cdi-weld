@@ -1,9 +1,9 @@
 package org.acme.service_layer.persistence;
 
+import jakarta.inject.Inject;
 import lombok.extern.log4j.Log4j2;
 import org.acme.service_layer.domain.AbstractPersistable;
 
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -12,7 +12,6 @@ import java.util.List;
  * @author x80486
  */
 @Log4j2
-// @Singleton // TODO: Is it needed?
 abstract class AbstractDao<T extends AbstractPersistable> {
   @Inject
   protected EntityManager entityManager;
